@@ -1,7 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Button Clicked");
+    navigate("/rules");
+  };
   return (
     <>
       <div className="LoginHolder w-[100vw] pt-12 pb-10 lg:pt-0 md:h-[100vh] mt-[1.5vmin] lg:mt-0 flex justify-center items-center">
@@ -23,11 +30,11 @@ const Login = () => {
             </div>
           </div>
           <div className="flex flex-col pt-2 lg:pt-0  gap-y-12 justify-center  items-center rightHolder  w-[100vw]  lg:p-0 lg:w-[50%]  bg-bgColor pb-6  ">
-            <div className="logoHolder">
-              <img src="CodemapLogo.png" height={120} width={140} />
+            <div className="logoHolder mt-3">
+              <img src="CodemapLogo.png" height={150} width={150} />
             </div>
             <div className="w-[94%] 2xl:w-[85%] mt-[-1.25vmin] lg:text-[2.15vmin]">
-              <form>
+              <div className="formHolder">
                 <input
                   type="text"
                   name="name"
@@ -68,11 +75,14 @@ const Login = () => {
                 </select>
 
                 <div className="btnHolder mt-8 2xl:mt-10 flex justify-center items-center">
-                  <button className="p-4 bg-purple text-white w-[25%]">
+                  <button
+                    className="p-4 bg-purple text-white w-[25%]"
+                    onClick={handleSubmit}
+                  >
                     Start
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

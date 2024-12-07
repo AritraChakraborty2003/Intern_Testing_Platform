@@ -25,6 +25,11 @@ export default {
       Green: "#00ab41",
       lightYellow: "#FFDF00",
     },
+    theme: {
+      fontFamily: {
+        poppins: "poppins",
+      },
+    },
   },
   plugins: [],
 };
