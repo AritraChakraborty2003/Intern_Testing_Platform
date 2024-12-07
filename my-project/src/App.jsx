@@ -8,7 +8,11 @@ function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: <Login category={"user"} />,
+    },
+    {
+      path: "/cms",
+      element: <Login category={"CMS"} />,
     },
     {
       path: "/rules",
