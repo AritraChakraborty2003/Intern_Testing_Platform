@@ -4,6 +4,7 @@ import Rules from "./Components/User/Rules";
 import Timer from "./Components/User/Timer";
 import LoadingPage from "./Components/User/LoadingPage";
 import ScorePage from "./Components/User/ScorePage";
+import Reviews from "./Components/User/Reviews";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -30,6 +31,10 @@ function App() {
     {
       path: "/score",
       element: <ScorePage />,
+    },
+    {
+      path: "/reviews",
+      element: <Reviews />,
     },
   ]);
 
