@@ -2,11 +2,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProgressBar = (props) => {
   const { start, end, height, width, timer, bgColor, borderColor } = props;
   //   const [value, setValue] = useState(start);
   const [value, setValue] = useState(start);
+  const navigate = useNavigate();
   // const [percent, setPercent] = useState(value);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,7 +49,7 @@ const ProgressBar = (props) => {
             {value <= end ? (
               <span className="2xl:text-[2.25vmin]">{value.toFixed()}%</span>
             ) : (
-              <span className="2xl:text-[2.25vmin]">100%</span>
+              <span className="2xl:text-[2.25vmin]">{navigate("/score")}</span>
             )}
           </span>
         </div>
