@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rules from "./Components/User/Rules";
 import Timer from "./Components/User/Timer";
 import LoadingPage from "./Components/User/LoadingPage";
+import ScorePage from "./Components/User/ScorePage";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -25,6 +26,10 @@ function App() {
     {
       path: "/CalculationPage",
       element: <LoadingPage />,
+    },
+    {
+      path: "/score",
+      element: <ScorePage />,
     },
   ]);
 
