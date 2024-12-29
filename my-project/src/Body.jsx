@@ -1,6 +1,6 @@
 import App from "./App";
 import { useState } from "react";
-import { UserContext } from "./UserContext/UserContext";
+import { UserContext } from "./Components/UserContext/UserContext";
 
 const Body = () => {
   const [name, setName] = useState("");

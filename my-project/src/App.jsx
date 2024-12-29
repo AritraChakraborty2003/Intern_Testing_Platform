@@ -13,6 +13,10 @@ function App() {
       element: <Login category={"user"} />,
     },
     {
+      path: "/login",
+      element: <Login category={"user"} />,
+    },
+    {
       path: "/cms",
       element: <Login category={"CMS"} />,
     },
@@ -28,6 +32,7 @@ function App() {
       path: "/CalculationPage",
       element: <LoadingPage />,
     },
+
     {
       path: "/score",
       element: <ScorePage />,
