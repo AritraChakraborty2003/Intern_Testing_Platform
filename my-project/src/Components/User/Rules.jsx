@@ -1,7 +1,24 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-
+import { useContext } from "react";
+import { UserContext } from "../../UserContext/UserContext";
 const Rules = () => {
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    domain,
+    setDomain,
+    ansList,
+    setAnsList,
+    correctAnsList,
+    setCorrectAnsList,
+  } = useContext(UserContext);
+
+  console.log({
+    "Global Data": { name, email, domain, ansList, correctAnsList },
+  });
   return (
     <>
       <div className="rulesHolder w-[100vw] h-[100vh] bg-bgColor flex justify-center items-center">

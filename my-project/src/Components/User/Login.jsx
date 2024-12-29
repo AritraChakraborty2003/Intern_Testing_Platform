@@ -2,13 +2,46 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { checkValidEmail } from "../../utils/checkValidEmail.js";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext/UserContext";
 
 const Login = (props) => {
   const navigate = useNavigate();
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    domain,
+    setDomain,
+    ansList,
+    setAnsList,
+    correctAnsList,
+    setCorrectAnsList,
+  } = useContext(UserContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Button Clicked");
-    navigate("/rules");
+    const name_entry = document.getElementById("name").value;
+    const email_entry = document.getElementById("email").value;
+    const domain_entry = document.getElementById("domain").value;
+    const secretCode = document.getElementById("secretCode").value;
+    if (
+      checkValidEmail(email_entry) &&
+      secretCode == `${import.meta.env.VITE_APP_USER_PASSWORD}`
+    ) {
+      // console.log(name_entry, email_entry, domain_entry);
+      setName(name_entry);
+      setEmail(email_entry);
+      setDomain(domain_entry);
+
+      console.log("User Verified");
+
+      navigate(`/rules`);
+    } else {
+      console.log("User Invalid");
+    }
   };
 
   const handleLogin = (e) => {
@@ -73,7 +106,7 @@ const Login = (props) => {
                   <br></br>
                   <br></br>
 
-                  <select className="w-[100%] p-5">
+                  <select className="w-[100%] p-5" id="domain">
                     <option value="none">Choose the domain...</option>
                     <option value="git/github">git/github</option>
                     <option value="react.js">react.js</option>
