@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkValidEmail } from "../../utils/checkValidEmail.js";
 import { useContext } from "react";
-import { UserContext } from "../../UserContext/UserContext";
+import { UserContext } from "../UserContext/UserContext.js";
+import { v4 as uuidv4 } from "uuid";
 
 const Login = (props) => {
   const navigate = useNavigate();
+
   const {
     name,
     setName,
@@ -31,13 +33,17 @@ const Login = (props) => {
       checkValidEmail(email_entry) &&
       secretCode == `${import.meta.env.VITE_APP_USER_PASSWORD}`
     ) {
-      // console.log(name_entry, email_entry, domain_entry);
+      //Setting up the login token
+      const token = uuidv4();
+      const signature =
+        Date.now() +
+        parseInt(`${import.meta.env.VITE_APP_TOKEN_EXPIRY_MINUTE}`) * 60 * 1000;
+
       setName(name_entry);
       setEmail(email_entry);
       setDomain(domain_entry);
 
-      console.log("User Verified");
-
+      localStorage.setItem("token", JSON.stringify({ token, signature }));
       navigate(`/rules`);
     } else {
       console.log("User Invalid");

@@ -1,8 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
-import { UserContext } from "../../UserContext/UserContext";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../UserContext/UserContext.js";
+import { verifyUser } from "../../utils/verifyUser.js";
+
 const Rules = () => {
+  const [state, setState] = useState(true);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token || !verifyUser(token)) {
+      navigate("/login");
+    }
+  });
   const {
     name,
     setName,
@@ -19,6 +31,8 @@ const Rules = () => {
   console.log({
     "Global Data": { name, email, domain, ansList, correctAnsList },
   });
+
+  console.log(localStorage.getItem("token"));
   return (
     <>
       <div className="rulesHolder w-[100vw] h-[100vh] bg-bgColor flex justify-center items-center">
