@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../UserContext/UserContext.js";
 import { v4 as uuidv4 } from "uuid";
 import { generateToken, setToken } from "../../utils/tokenManagement.js";
-
+import { toast } from "react-toastify";
 const Login = (props) => {
   const navigate = useNavigate();
 
@@ -42,10 +42,10 @@ const Login = (props) => {
       );
 
       setToken(token);
-      alert("Login successful!");
+      toast("Login Successful... ");
       navigate(`/rules`);
     } else {
-      alert("Invalid credentials!");
+      toast.error("Invalid email or name... ");
     }
   };
 

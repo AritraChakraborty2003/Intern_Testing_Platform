@@ -25,8 +25,8 @@ const Rules = () => {
 
   return (
     <>
-      <div className="rulesHolder w-[100vw] h-[100vh] bg-bgColor flex justify-center items-center">
-        <div className="ruleHolder w-[60%] bg-purple pb-6 pl-7 rounded-md">
+      <div className="rulesHolder pt-10 lg:h-[100vh] pb-10 bg-bgColor flex justify-center items-center">
+        <div className="ruleHolder w-[96%] lg:w-[60%] bg-purple pb-6 p-7  rounded-md">
           <div className="rulesTextHolder flex  flex-col  justify-center">
             <div className="header text-white font-poppins">
               <p className="text-[7vmin] font-extrabold">Rules</p>
@@ -57,7 +57,7 @@ const Rules = () => {
                 7.&nbsp; All the Best for the Test!!! By the Codemap Team 🙂
               </p>
               <div className="holder flex justify-center items-center mt-6">
-                <button className="bg-white text-black p-2 w-[25%] rounded-md">
+                <button className="bg-white text-black p-2 w-[35%] lg:w-[25%] rounded-md">
                   Start Test...
                 </button>
               </div>
