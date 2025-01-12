@@ -77,9 +77,26 @@ const Login = (props) => {
               </div>
             </div>
             <div className="flex flex-col pt-2 lg:pt-0  gap-y-12 justify-center  items-center rightHolder  w-[100vw]  lg:p-0 lg:w-[50%]  bg-bgColor pb-6  ">
-              <div className="logoHolder mt-3">
-                <img src="CodemapLogo.png" height={150} width={150} />
-              </div>
+              {screen.width > 1000 && (
+                <div className="logoHolder mt-3">
+                  <img src="CodemapLogo.png" height={150} width={150} />
+                </div>
+              )}
+              {screen.width < 1000 && (
+                <>
+                  <div className="logoHolder mt-3">
+                    <img src="CodemapLogo.png" height={150} width={150} />
+                  </div>
+                  <div className="textHolder flex flex-col justify-center items-center">
+                    <p className="text-[11vmin] font-extrabold text-black font-bold mt-[-5.5vmin]">
+                      Code <span className="text-purple">Probe</span>
+                    </p>
+                    <p className="txet-white tracking-[0.35vmin] tracking-[0.25vmin] text-black mt-2">
+                      ( Designed By Codemap )
+                    </p>
+                  </div>
+                </>
+              )}
               <div className="w-[94%] 2xl:w-[85%] mt-[-1.25vmin] lg:text-[2.15vmin]">
                 <div className="formHolder">
                   <input
