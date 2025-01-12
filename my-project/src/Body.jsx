@@ -6,8 +6,7 @@ const Body = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [domain, setDomain] = useState("");
-  const [ansList, setAnsList] = useState([]);
-  const [correctAnsList, setCorrectAnsList] = useState([]);
+  const [score, setScore] = useState(0);
 
   return (
     <>
@@ -19,10 +18,8 @@ const Body = () => {
           setEmail: setEmail,
           domain: domain,
           setDomain: setDomain,
-          ansList: ansList,
-          setAnsList: setAnsList,
-          correctAnsList: correctAnsList,
-          setCorrectAnsList: setCorrectAnsList,
+          score: score,
+          setScore: setScore,
         }}
       >
         <App />

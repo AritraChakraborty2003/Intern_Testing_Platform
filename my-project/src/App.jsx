@@ -3,9 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rules from "./Components/User/Rules";
 import Timer from "./Components/User/Timer";
 import LoadingPage from "./Components/User/LoadingPage";
+import StateRoute from "./Components/Universal/StateRoute";
 import ScorePage from "./Components/User/ScorePage";
 import Reviews from "./Components/User/Reviews";
-
+import ProtectedRoute from "./Components/Universal/ProtectedRoute";
 function App() {
   const appRouter = createBrowserRouter([
     {
@@ -22,7 +23,15 @@ function App() {
     },
     {
       path: "/rules",
-      element: <Rules />,
+      element: (
+        <>
+          <StateRoute>
+            <ProtectedRoute>
+              <Rules />
+            </ProtectedRoute>
+          </StateRoute>
+        </>
+      ),
     },
     {
       path: "/timer",
@@ -30,16 +39,36 @@ function App() {
     },
     {
       path: "/CalculationPage",
-      element: <LoadingPage />,
+      element: (
+        <>
+          <StateRoute>
+            <ProtectedRoute>
+              <LoadingPage />
+            </ProtectedRoute>
+          </StateRoute>
+        </>
+      ),
     },
 
     {
       path: "/score",
-      element: <ScorePage />,
+      element: (
+        <>
+          <ProtectedRoute>
+            <ScorePage />
+          </ProtectedRoute>
+        </>
+      ),
     },
     {
       path: "/reviews",
-      element: <Reviews />,
+      element: (
+        <>
+          <ProtectedRoute>
+            <Reviews />
+          </ProtectedRoute>
+        </>
+      ),
     },
   ]);
 

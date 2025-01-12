@@ -6,47 +6,46 @@ import { checkValidEmail } from "../../utils/checkValidEmail.js";
 import { useContext } from "react";
 import { UserContext } from "../UserContext/UserContext.js";
 import { v4 as uuidv4 } from "uuid";
+import { generateToken, setToken } from "../../utils/tokenManagement.js";
 
 const Login = (props) => {
   const navigate = useNavigate();
 
-  const {
-    name,
-    setName,
-    email,
-    setEmail,
-    domain,
-    setDomain,
-    ansList,
-    setAnsList,
-    correctAnsList,
-    setCorrectAnsList,
-  } = useContext(UserContext);
+  const { name, setName, email, setEmail, domain, setDomain, score, setScore } =
+    useContext(UserContext);
 
+  console.log(name, email);
   const handleSubmit = (e) => {
     e.preventDefault();
     const name_entry = document.getElementById("name").value;
     const email_entry = document.getElementById("email").value;
     const domain_entry = document.getElementById("domain").value;
     const secretCode = document.getElementById("secretCode").value;
+
+    console.log(domain_entry);
+
     if (
       checkValidEmail(email_entry) &&
       secretCode == `${import.meta.env.VITE_APP_USER_PASSWORD}`
     ) {
       //Setting up the login token
-      const token = uuidv4();
-      const signature =
-        Date.now() +
-        parseInt(`${import.meta.env.VITE_APP_TOKEN_EXPIRY_MINUTE}`) * 60 * 1000;
 
-      setName(name_entry);
-      setEmail(email_entry);
-      setDomain(domain_entry);
+      localStorage.setItem(
+        "details",
+        JSON.stringify(name_entry + ";" + email_entry + ";" + domain_entry)
+      );
+      localStorage.setItem("score", JSON.stringify(score));
 
-      localStorage.setItem("token", JSON.stringify({ token, signature }));
+      const token = generateToken(
+        name_entry,
+        `${import.meta.env.VITE_APP_TOKEN_EXPIRATION_TIME_HRS}`
+      );
+
+      setToken(token);
+      alert("Login successful!");
       navigate(`/rules`);
     } else {
-      console.log("User Invalid");
+      alert("Invalid credentials!");
     }
   };
 
