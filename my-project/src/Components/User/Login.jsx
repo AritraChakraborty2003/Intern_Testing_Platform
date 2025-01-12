@@ -57,8 +57,8 @@ const Login = (props) => {
     <>
       {(props.category === "user" && (
         <div className="LoginHolder w-[100vw] pt-12 pb-10 lg:pt-0 md:h-[100vh] mt-[1.5vmin] lg:mt-0 flex justify-center items-center">
-          <div className="loginHolderContainer flex w-[90%] lg:h-[85vh] mt-[-3vmin] lg:mt-0 border-lightGrey border-[1px] rounded-lg">
-            <div className=" leftHolder  hidden lg:block lg:w-[50%] border-lightGrey border-[1px] h-[85vh] rounded-lg  bg-purple ">
+          <div className="loginHolderContainer flex w-[90%] lg:h-[90vh] mt-[-3vmin] lg:mt-0 border-lightGrey border-[1px] rounded-lg">
+            <div className=" leftHolder  hidden lg:block lg:w-[50%] border-lightGrey border-[1px] h-[90vh] rounded-lg  bg-purple ">
               <div className="flex flex-col justify-center items-center h-[100%] ">
                 <div className="imageHolder w-[85%] h-[50vh]  flex justify-center items-center">
                   <img
@@ -88,10 +88,10 @@ const Login = (props) => {
                     <img src="CodemapLogo.png" height={150} width={150} />
                   </div>
                   <div className="textHolder flex flex-col justify-center items-center">
-                    <p className="text-[11vmin] font-extrabold text-black font-bold mt-[-5.5vmin]">
+                    <p className="text-[13.65vmin] md:text-[10vmin] font-extrabold text-black font-bold mt-[-6.85vmin]">
                       Code <span className="text-purple">Probe</span>
                     </p>
-                    <p className="txet-white tracking-[0.35vmin] tracking-[0.25vmin] text-black mt-2">
+                    <p className="txet-white tracking-[0.35vmin] tracking-[0.25vmin] text-black mt-2 md:mt-[-1vmin] md:text-[2.45vmin]">
                       ( Designed By Codemap )
                     </p>
                   </div>
